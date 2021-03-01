@@ -408,8 +408,9 @@ GameObject:
   - component: {fileID: 66011595}
   - component: {fileID: 66011594}
   - component: {fileID: 66011593}
+  - component: {fileID: 66011596}
   m_Layer: 5
-  m_Name: boost_btn
+  m_Name: boost_btn0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,6 +516,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66011591}
   m_CullTransparentMesh: 0
+--- !u!114 &66011596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66011591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e5a314c33224a55a6a716f430265d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treasureButton: {fileID: 66011591}
 --- !u!1 &80014658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4947,8 +4961,9 @@ GameObject:
   - component: {fileID: 1582741570}
   - component: {fileID: 1582741569}
   - component: {fileID: 1582741568}
+  - component: {fileID: 1582741571}
   m_Layer: 5
-  m_Name: boost_btn
+  m_Name: boost_btn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5054,6 +5069,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582741566}
   m_CullTransparentMesh: 0
+--- !u!114 &1582741571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582741566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e5a314c33224a55a6a716f430265d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treasureButton: {fileID: 1582741566}
 --- !u!1 &1643733135
 GameObject:
   m_ObjectHideFlags: 0

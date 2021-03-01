@@ -53,6 +53,8 @@ public class Game : MonoBehaviour
 
     }
 
+    
+
     public void ClickCat()
     {
         score += clickEff;
