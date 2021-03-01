@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
 
     public Text scoreOnScreen;
     public Text efficiencyOnScreen;
+    public AudioSource meow;
 
     private double score = 0;
     private double clickEff = 1;
@@ -44,6 +45,9 @@ public class Game : MonoBehaviour
             score -= costs[buttonId];
             amounts[buttonId] += 1;
             costs[buttonId] += costs[buttonId] * prop[buttonId];
+
+            // play sound
+            meow.Play();
         }
 
     }
@@ -51,6 +55,9 @@ public class Game : MonoBehaviour
     public void ClickCat()
     {
         score += clickEff;
+
+        // play sound
+        // meow.Play();
     }
 
 
