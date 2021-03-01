@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public Text scoreOnScreen;
     public Text efficiencyOnScreen;
     public AudioSource meow;
+    public AudioSource spank;
 
     private double score = 0;
     private double clickEff = 1;
@@ -57,7 +58,7 @@ public class Game : MonoBehaviour
         score += clickEff;
 
         // play sound
-        // meow.Play();
+        spank.Play();
     }
 
 
