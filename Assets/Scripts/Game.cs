@@ -12,14 +12,19 @@ public class Game : MonoBehaviour
     public Text efficiencyOnScreen;
     public AudioSource meow;
     public AudioSource spank;
+    
+
+    public double[] treasureCosts;
+    public double[] gain;
 
     private double score = 0;
     private double clickEff = 1;
     // private double efficiency = 0;
-    private double[] gain = new double[] {1, 5, 10, 20, 30};
-    private double[] costs = new double[] {10, 100, 1000, 10000, 50000};
-    private double[] prop = new double[] {0.1, 0.1, 0.1, 0.1, 0.1};
-    private int[] amounts = new int[] {1, 1, 1, 1, 1};
+    
+    private double[] costs;
+    private double[] prop;
+    private int[] amounts;
+    private double treasureProp;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +58,25 @@ public class Game : MonoBehaviour
 
     }
 
-    
+    public void BuyTreasure(int buttonId)
+    {
+        if (score >= treasureCosts[buttonId])
+        {
+            score -= treasureCosts[buttonId];
+            treasureCosts[buttonId] += treasureProp * treasureCosts[buttonId];
+
+            if (buttonId % 2 == 0)
+            {
+                gain[(int)Math.Floor(buttonId/2.0)] *= 2;
+            }
+            else
+            {
+                costs[(int)Math.Floor(buttonId/2.0)] /= 2;
+            }
+
+        }
+    }
+
 
     public void ClickCat()
     {
@@ -94,7 +117,7 @@ public class Game : MonoBehaviour
         // check if item can be afford
         for (int i = 0; i < amounts.Count(); i++)
         {
-            if (costs[i] < score)
+            if (costs[i] <= score)
             {
                 GameObject.Find("factory_btn" + i.ToString()).GetComponent<Button>().interactable = true;
             }
@@ -102,6 +125,20 @@ public class Game : MonoBehaviour
             {
                 GameObject.Find("factory_btn" + i.ToString()).GetComponent<Button>().interactable = false;
             }
+        }
+
+        // check if treasure can be afford
+        for (int i = 0; i < treasureCosts.Count(); i++)
+        {
+            if (treasureCosts[i] <= score)
+            {
+                GameObject.Find("boost_btn" + i.ToString()).GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                GameObject.Find("boost_btn" + i.ToString()).GetComponent<Button>().interactable = false;
+            }
+
         }
 
     }
@@ -120,12 +157,13 @@ public class Game : MonoBehaviour
     {
         score = 0;
         // efficiency = 0;
-        gain = new double[] {1, 5, 10, 20, 30};
-        costs = new double[] {10, 100, 1000, 10000, 50000};
+        gain = new double[] {1, 5, 10, 80, 250};
+        costs = new double[] {10, 100, 1100, 11000, 35000};
         prop = new double[] {0.1, 0.1, 0.1, 0.1, 0.1};
         // amounts = new int[] {1, 1, 1, 1, 1};
-        amounts = new int[] {0, 0, 0, 0, 0};
-
+        amounts = new int[] {1, 1, 1, 0, 0};
+        treasureCosts = new double[] {100, 200, 2000, 4000, 5000, 10000, 20000, 30000, 50000, 70000};
+        treasureProp = 5.0;
 
     }
 }
